@@ -7,22 +7,50 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+　 
+
 
 export default class Input extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+     date : [
+       {
+        name:"user1",
+        uri: require('../Image/dog.jpg')
+     },
+       {
+        name:"user2",
+        uri: require('../Image/horse.jpg')
+     },
+       {
+        name:"user3",
+        uri: require('../Image/tartle.jpg')
+     },
+            ] 
+    };
+  }
 
   render() {
-
     return (
       <View style={styles.container}>
   <Text style={styles.intro}>あなたの仲間を紹介しよう</Text>
-
       <View >
+      <TouchableOpacity
+      onPress={this.onImagePress}>
       <Image 
       style={{width: 30, height: 30}}
-      source={require('../Image/dog.jpg')}
+      source={this.state.date[0].uri}
       />
-   <Text style={styles.name}>user</Text>
-
+      <Text>{this.state.date[0].name}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <Image 
+      style={{width: 30, height: 30}}
+      source={require('../Image/tartle.jpg')}
+      />
+        <Text>user3</Text>
+      </TouchableOpacity>
         <View style={styles.inputArea}>
           <TextInput
             style={styles.input}

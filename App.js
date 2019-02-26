@@ -19,30 +19,6 @@ export default class App extends Component {
        listCount:0,
        date: new Date().toLocaleString(),
     };
-    let user1={
-      name:"user1",
-     image:'../Image/dog.jpg',
-     applause:100,
-     applaused:0,
-      }
-      let user2={
-       name:"user1",
-       image:'../Image/horse.jpg',
-       applause:100,
-       applaused:0,
-        }
-      let user3={
-       name:"user1",
-       image:'../Image/tartle.jpg',
-       applause:100,
-       applaused:0,
-        }
-       let user4={
-        name:"user1",
-        image:'../Image/dog.jpg',
-        applause:100,
-        applaused:0,
-         }
   }
   _onChangeText = (text) => {
     this.setState({ text });
