@@ -44,13 +44,6 @@ export default class Input extends Component {
       />
       <Text>{this.state.date[0].name}</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
-      <Image 
-      style={{width: 30, height: 30}}
-      source={require('../Image/tartle.jpg')}
-      />
-        <Text>user3</Text>
-      </TouchableOpacity>
         <View style={styles.inputArea}>
           <TextInput
             style={styles.input}
