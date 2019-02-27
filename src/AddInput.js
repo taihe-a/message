@@ -14,6 +14,7 @@ export default class Input extends Component {
   constructor(props){
     super(props);
     this.state={
+      count:1,
      date : [
        {
         name:"user1",
@@ -29,8 +30,52 @@ export default class Input extends Component {
      },
             ] 
     };
+    this.onImagePress = this.onImagePress.bind(this);
   }
-
+onImagePress = () =>{
+  if(this.state.count<3){
+    this.setState({
+      count:this.state.count+1})
+  }else{
+    this.setState({
+      count:1})
+  };
+  switch (this.state.count) {
+    case 1:
+      return (
+      <View>
+      <Image 
+        style={{width: 30, height: 30}}
+        source={this.state.date[0].uri}
+        />
+        <Text>{this.state.date[0].name}</Text>
+      </View>);
+      break;
+    case 2:
+      return (<View>
+        <Image 
+          style={{width: 30, height: 30}}
+          source={this.state.date[this.state.count].uri}
+          />
+          <Text>{this.state.date[this.state.count].name}</Text>
+        </View>);
+      break;
+      case 3:
+      return (<View>
+        <Image 
+          style={{width: 30, height: 30}}
+          source={this.state.date[2].uri}
+          />
+          <Text>{this.state.date[2].name}</Text>
+        </View>);
+      break;
+    default:
+    return (<View>
+        <Text>not found user</Text>
+      </View>);
+      break;
+  }
+}
   render() {
     return (
       <View style={styles.container}>
@@ -38,11 +83,12 @@ export default class Input extends Component {
       <View >
       <TouchableOpacity
       onPress={this.onImagePress}>
-      <Image 
-      style={{width: 30, height: 30}}
-      source={this.state.date[0].uri}
-      />
-      <Text>{this.state.date[0].name}</Text>
+        <Image 
+          style={{width: 30, height: 30}}
+          source={this.state.date[2].uri}
+          />
+          <Text>{this.state.date[2].name}</Text>
+      <Text> { this.state.count}</Text>
       </TouchableOpacity>
         <View style={styles.inputArea}>
           <TextInput
