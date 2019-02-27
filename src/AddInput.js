@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import ImageChange from './ImageChange';
 　 
 
 
@@ -40,56 +41,17 @@ onImagePress = () =>{
     this.setState({
       count:1})
   };
-  switch (this.state.count) {
-    case 1:
-      return (
-      <View>
-      <Image 
-        style={{width: 30, height: 30}}
-        source={this.state.date[0].uri}
-        />
-        <Text>{this.state.date[0].name}</Text>
-      </View>);
-      break;
-    case 2:
-      return (<View>
-        <Image 
-          style={{width: 30, height: 30}}
-          source={this.state.date[this.state.count].uri}
-          />
-          <Text>{this.state.date[this.state.count].name}</Text>
-        </View>);
-      break;
-      case 3:
-      return (<View>
-        <Image 
-          style={{width: 30, height: 30}}
-          source={this.state.date[2].uri}
-          />
-          <Text>{this.state.date[2].name}</Text>
-        </View>);
-      break;
-    default:
-    return (<View>
-        <Text>not found user</Text>
-      </View>);
-      break;
-  }
 }
   render() {
     return (
       <View style={styles.container}>
   <Text style={styles.intro}>あなたの仲間を紹介しよう</Text>
       <View >
-      <TouchableOpacity
-      onPress={this.onImagePress}>
-        <Image 
-          style={{width: 30, height: 30}}
-          source={this.state.date[2].uri}
-          />
-          <Text>{this.state.date[2].name}</Text>
-      <Text> { this.state.count}</Text>
-      </TouchableOpacity>
+      <ImageChange
+      onPress={this.onImagePress}
+      date={this.state.date}
+      count={this.state.count}
+      />
         <View style={styles.inputArea}>
           <TextInput
             style={styles.input}
